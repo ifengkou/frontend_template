@@ -1,5 +1,31 @@
 {
+  "dependencies": {
+    "css-loader": "^0.21.0",
+    "file-loader": "^0.8.5",
+    "sass-loader": "^3.2.0",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7"
+  },
   "devDependencies": {
-    "gulp": "^3.9.1"
-  }
+    "gulp": "^3.9.1",
+    "node-sass": "^3.7.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "keywords": [
+    "front-end",
+    "template",
+    "webpack",
+    "sass"
+  ],
+  "homepage": "https://github.com/ifengkou/frontend_template",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/ifengkou/frontend_template/blob/master/LICENSE.txt"
+  },
+  "name": "frontend_template",
+  "description": "a front-end template",
+  "author": "sloong",
+  "version": "0.1.0"
 }
