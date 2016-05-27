@@ -1,4 +1,5 @@
 {
+  "avalon": "js/lib/avalon",
   "zepto": "js/lib/zepto",
   "commonCss":"css/common.css",
   "logo":"img/favicon.ico"
