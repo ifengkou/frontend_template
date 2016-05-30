@@ -106,7 +106,7 @@ module.exports = (options) =>{
     let config = {
         entry:Object.assign(entries,{
             //用到的公共lib（例如zepto,avalon)，就把它加到vender去，目的是为了将公共库单独打包
-            'vender':['zepto']
+            'vender':['zepto','avalon']
         }),
 
         output:{
@@ -156,11 +156,11 @@ module.exports = (options) =>{
             }),*/
             new CommonsChunkPlugin({
                 name: 'common-b-c',
-                chunks: ['b', 'c']
+                chunks: ['pageB', 'pageC']
             }),
             new CommonsChunkPlugin({
                 name: 'common',
-                chunks: ['common-b-c', 'a']
+                chunks: ['common-b-c', 'pageA']
             }),
             new CommonsChunkPlugin({
                 name: 'vender',
