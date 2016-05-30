@@ -6,5 +6,16 @@
 </head>
 <body>
 <h1>page A</h1>
+<div id="toast" class="none toast">toast</div>
+<div id="dialog" class="none dialog">dialog</div>
+
+<p id="logo"></p>
+
+<div id="list" ms-controller="listCtrl">
+    <li ms-repeat="listData">
+        <h2>{{el.title}}</h2>
+        <p>{{el.content}}</p>
+    </li>
+</div>
 </body>
 </html>

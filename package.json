@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "start-dev": "node server/app",
+    "build": "gulp",
+    "start-release": "node server/app production",
+    "deploy": "gulp deploy"
+  },
   "dependencies": {
     "lodash": "^4.13.1"
   },
@@ -41,7 +47,6 @@
   "homepage": "https://github.com/ifengkou/frontend_template",
   "license": {
     "type": "MIT",
-    "url": "https://github.com/ifengkou/frontend_template/blob/master/LICENSE.txt"
   },
   "name": "frontend_template",
   "description": "a front-end template",
