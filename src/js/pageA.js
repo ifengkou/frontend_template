@@ -6,7 +6,7 @@
 console.info('require page a');
 
 require('commonCss');
-require('../css/a.css');
+require('../css/pageA.css');
 
 require('zepto');
 require('avalon');
@@ -18,22 +18,32 @@ var $logo = $('<img />').attr('src', logoImg);
 
 $('#logo').html($logo);
 
-require.ensure([],function(){
-   var ajax = require('./utils/ajax');
-    var t = _.now();
+var stateList = avalon.define({    //×´Ì¬ÅÐ¶Ï
+    $id: "listCtrl",
+    listData: [{
+        id: 1,
+        title: 'foo',
+        content: 'content foo'
+    },
+        {
+            id: 2,
+            title: 'title bar',
+            content: 'content bar'
+        }],
+    getData: function (n) {
+        /*var ajax = require('./utils/ajax');
+        var t = _.now();
 
-    ajax.request({
-        url: '/api/list',
-        data: {
-            offset: 0,
-            limit: 5
-        }
-    }).done(function(data) {
-        var template = require('../tmpl/list.tpl');
-        var html = template({list: data || []});
+        ajax.request({
+            url: '/api/list',
+            data: {
+                offset: 0,
+                limit: 5
+            }
+        }).done(function (data) {
+            stateList.listData = data;
+        });*/
 
-        console.info('ajax took %d ms.', _.now() - t);
-
-        $('#list').html(html);
-    });
+    }
 });
+
