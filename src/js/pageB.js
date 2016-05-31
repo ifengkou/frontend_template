@@ -4,3 +4,8 @@
 'use strict';
 
 console.info('require page b');
+
+require('zepto')
+
+// 直接使用npm模块
+//var _ = require('lodash');

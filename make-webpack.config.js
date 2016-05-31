@@ -87,7 +87,7 @@ module.exports = (options) => {
         extractCSS = new ExtractTextPlugin('css/[name].css?[contenthash]')
         cssLoader = extractCSS.extract(['css'])
         sassLoader = extractCSS.extract(['css', 'sass'])
-        plugins.push(extractCSS, new webpack.HotModuleReplacementPlugin())
+        plugins.push(extractCSS)
     } else {
         extractCSS = new ExtractTextPlugin('css/[contenthash:8].[name].min.css', {
             // 当allChunks指定为false时，css loader必须指定怎么处理
@@ -109,7 +109,7 @@ module.exports = (options) => {
                     comments: false
                 },
                 mangle: {
-                    except: ['$', 'exports', 'require']
+                    except: ['$', 'exports', 'require','avalon']
                 }
             }),
             // new AssetsPlugin({
@@ -119,10 +119,12 @@ module.exports = (options) => {
             new webpack.NoErrorsPlugin()
         )
 
-        //plugins.push(new UglifyJsPlugin())
+        plugins.push(new UglifyJsPlugin())
     }
 
     let config = {
+        devtool: false,
+
         entry: Object.assign(entries, {
             // 用到什么公共lib（例如React.js），就把它加进vender去，目的是将公用库单独提取打包
             'vender': ['zepto', 'avalon']
@@ -167,11 +169,11 @@ module.exports = (options) => {
         plugins: [
             new CommonsChunkPlugin({
                 name: 'common-b-c',
-                chunks: ['b', 'c']
+                chunks: ['pageB', 'pageC']
             }),
             new CommonsChunkPlugin({
                 name: 'common',
-                chunks: ['common-b-c', 'a']
+                chunks: ['common-b-c', 'pageA']
             }),
             new CommonsChunkPlugin({
                 name: 'vender',
@@ -203,8 +205,8 @@ module.exports = (options) => {
             }
         })(config.entry)
 
-        config.plugins.push(new webpack.HotModuleReplacementPlugin())
-        config.plugins.push(new webpack.NoErrorsPlugin())
+        //config.plugins.push(new webpack.HotModuleReplacementPlugin())
+        //config.plugins.push(new webpack.NoErrorsPlugin())
     }
 
     return config

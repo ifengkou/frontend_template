@@ -1,9 +1,3 @@
-/*
-* @Author: dm.yang
-* @Date:   2015-02-10 13:55:26
-* @Last Modified by:   dmyang
-* @Last Modified time: 2015-08-05 01:40:43
-*/
 
 'use strict';
 

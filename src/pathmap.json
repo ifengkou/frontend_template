@@ -1,6 +1,6 @@
 {
-  "zepto": "js/lib/zepto",
-  "avalon": "js/lib/avalon",
+  "zepto": "js/lib/zepto.js",
+  "avalon": "js/lib/avalon.js",
   "commonCss":"css/common.css",
   "webpackLogo":"img/favicon.ico"
 }

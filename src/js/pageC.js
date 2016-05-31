@@ -4,3 +4,7 @@
 'use strict';
 
 console.info('require page c');
+
+var $ = require('zepto')
+
+var avalon = require('avalon')
