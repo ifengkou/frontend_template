@@ -8,16 +8,14 @@ console.info('require page a');
 require('commonCss');
 require('../css/pageA.css');
 
-require('zepto');
-require('avalon');
 
-var _ = require('lodash');
+//var _ = require('lodash');
 
-var logoImg = require('webpackLogo');
-var $logo = $('<img />').attr('src', logoImg);
+//var logoImg = require('webpackLogo');
+//var $logo = $('<img />').attr('src', logoImg);
 
-$('#logo').html($logo);
-
+//$('#logo').html($logo);
+/*
 var stateList = avalon.define({    //×´Ì¬ÅÐ¶Ï
     $id: "listCtrl",
     listData: [{
@@ -31,7 +29,7 @@ var stateList = avalon.define({    //×´Ì¬ÅÐ¶Ï
             content: 'content bar'
         }],
     getData: function (n) {
-        /*var ajax = require('./utils/ajax');
+        /!*var ajax = require('./utils/ajax');
         var t = _.now();
 
         ajax.request({
@@ -42,8 +40,8 @@ var stateList = avalon.define({    //×´Ì¬ÅÐ¶Ï
             }
         }).done(function (data) {
             stateList.listData = data;
-        });*/
+        });*!/
 
     }
-});
+});*/
 

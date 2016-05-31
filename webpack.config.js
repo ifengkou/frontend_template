@@ -5,6 +5,6 @@
 
 'use strict';
 
-var genConf = require('./make-webpack.config')
+let genConf = require('./make-webpack.config')
 
 module.exports = genConf({debug: false})

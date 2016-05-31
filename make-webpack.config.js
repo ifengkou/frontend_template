@@ -1,10 +1,3 @@
-/*
- * @Author: dmyang
- * @Date:   2015-08-02 14:16:41
- * @Last Modified by:   dmyang
- * @Last Modified time: 2016-05-23 09:41:32
- */
-
 'use strict';
 
 let path = require('path')
@@ -63,12 +56,12 @@ module.exports = (options) => {
                 filename: filename + '.html'
             }
 
-            if(filename in entries) {
+            if (filename in entries) {
                 conf.inject = 'body'
                 conf.chunks = ['vender', 'common', filename]
             }
 
-            if(/b|c/.test(filename)) conf.chunks.splice(2, 0, 'common-b-c')
+            if (/b|c/.test(filename)) conf.chunks.splice(2, 0, 'common-b-c')
 
             r.push(new HtmlWebpackPlugin(conf))
         })
@@ -78,15 +71,14 @@ module.exports = (options) => {
 
     // 没有真正引用也会加载到runtime，如果没安装这些模块会导致报错，有点坑
     /*plugins.push(
-     new webpack.ProvidePlugin({
-     React: 'react',
-     ReactDOM: 'react-dom',
-     _: 'lodash', 按需引用
-     $: 'jquery'
-     })
-     )*/
+        new webpack.ProvidePlugin({
+            _: 'lodash',
+            $: 'zepto',
+            avalon:'avalon'
+        })
+    )*/
 
-    if(debug) {
+    if (debug) {
         extractCSS = new ExtractTextPlugin('css/[name].css?[contenthash]')
         cssLoader = extractCSS.extract(['css'])
         sassLoader = extractCSS.extract(['css', 'sass'])
@@ -122,13 +114,13 @@ module.exports = (options) => {
             new webpack.NoErrorsPlugin()
         )
 
-        plugins.push(new UglifyJsPlugin())
+        //plugins.push(new UglifyJsPlugin())
     }
 
     let config = {
         entry: Object.assign(entries, {
             // 用到什么公共lib（例如React.js），就把它加进vender去，目的是将公用库单独提取打包
-            'vender': ['zepto','avalon']
+            'vender': ['zepto', 'avalon']
         }),
 
         output: {
@@ -194,21 +186,21 @@ module.exports = (options) => {
         }
     }
 
-    /*if (debug) {
+    if (debug) {
         // 为实现webpack-hot-middleware做相关配置
         // @see https://github.com/glenjamin/webpack-hot-middleware
         ((entry) => {
             for (let key of Object.keys(entry)) {
-                if (! Array.isArray(entry[key])) {
+                if (!Array.isArray(entry[key])) {
                     entry[key] = Array.of(entry[key])
                 }
                 entry[key].push('webpack-hot-middleware/client?reload=true')
             }
         })(config.entry)
 
-        config.plugins.push( new webpack.HotModuleReplacementPlugin() )
-        config.plugins.push( new webpack.NoErrorsPlugin() )
-    }*/
+        config.plugins.push(new webpack.HotModuleReplacementPlugin())
+        config.plugins.push(new webpack.NoErrorsPlugin())
+    }
 
     return config
 }

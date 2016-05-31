@@ -35,10 +35,10 @@ gulp.task('clean', ['hint'], ()=> {
 })
 
 //run webpack page
-gulp.task('pack', ['clean'], (done)=> {
+gulp.task('pack', ['clean'], (done) => {
     webpack(webpackConf, (err, stats) => {
         if (err) throw new gutil.PluginError('webpack', err)
-        gutil.log(['webpack'], stats.toString({colors: true}))
+        gutil.log('[webpack]', stats.toString({colors: true}))
         done()
     })
 })
@@ -67,10 +67,10 @@ gulp.task('deploy', ()=> {
 
     return gulp.src(assets + '/**')
         .pipe(sftp({
-            host: '[remote server ip]',
-            remotePath: '/www/app/',
-            user: 'foo',
-            pass: 'bar'
+            host: '192.168.56.129',
+            remotePath: '/home/www/app/',
+            user: 'root',
+            pass: 'po000po000'
         }))
 })
 

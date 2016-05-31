@@ -32,7 +32,7 @@ function $ajax(options, retries) {
 
     $.ajax(options)
         .done(function(r) {
-            if(!r || r.code != 0) onFail(r, r.code == -9999 ? 0 : retries);
+            if(!r || r.code !== 0) onFail(r, r.code == -9999 ? 0 : retries);
             else $defer.resolve(r.data || {});
 
             // for stating
