@@ -3,6 +3,12 @@
 
 方便快速搭建前端项目。项目分支主要有angularjs,avalon,web 应用项目
 
+包管理器:npm
+自动化构建工具：gulp & webpack
+  - gulp 负责jshint，clean，deploy的工作
+  - webpack 负责项目build工作
+scss解析：compass
+
 ### 安装软件
 
 - Node.js：v5.0+
