@@ -70,7 +70,7 @@ gulp.task('deploy', ()=> {
             host: '192.168.56.129',
             remotePath: '/home/www/app/',
             user: 'root',
-            pass: 'po000po000'
+            pass: 'xxxx'
         }))
 })
 
