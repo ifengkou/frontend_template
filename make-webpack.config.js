@@ -1,3 +1,8 @@
+/*
+ * @Author:sloong
+ * @Date: 2016-05-27
+ */
+
 'use strict';
 
 let path = require('path')
