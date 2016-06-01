@@ -7,7 +7,7 @@ console.info('require page a');
 
 require('commonCss');
 require('../css/pageA.css');
-
+var avalon = require("avalon");
 
 var _ = require('lodash');
 
@@ -16,7 +16,7 @@ var $logo = $('<img />').attr('src', logoImg);
 
 $('#logo').html($logo);
 var stateList = avalon.define({    //×´Ì¬ÅÐ¶Ï
-    $id: "listCtrl",
+    $id: 'listCtrl',
     listData: [{
         id: 1,
         title: 'foo',

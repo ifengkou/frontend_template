@@ -12,6 +12,7 @@ coverage.html
 *.min.*.js
 *.min.*.css
 assets.json
+assets
 
 # Ignore Mac OS desktop services store
 .DS_Store
