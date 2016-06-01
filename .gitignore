@@ -3,7 +3,6 @@ config.js
 coverage
 node_modules
 bower_components
-lib
 npm-debug.log
 .naeindex
 coverage.html
